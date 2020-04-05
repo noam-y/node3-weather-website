@@ -1,4 +1,3 @@
-console.log('client side java file')
 messageOne = document.querySelector('#message-1')
 messageTwo = document.querySelector('#message-2')
 
