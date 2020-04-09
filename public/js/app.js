@@ -3,7 +3,7 @@ messageTwo = document.querySelector('#message-2')
 
 
 const fetchingaction=(searchValue) =>{
-    fetch('http://localhost:3000/weather?search='+searchValue).then((response)=>{
+    fetch('/weather?search='+searchValue).then((response)=>{
         response.json().then((data)=>{
             if (data.error){
                 messageOne.textContent  = data.error
