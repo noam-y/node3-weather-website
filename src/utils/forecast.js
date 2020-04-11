@@ -11,13 +11,15 @@ const forecast= (latitude, longitude, callback) =>{
             callback('Unable to find location for forecast- try again!', undefined)
         }else{
             data={
+                tempHigh: body.daily.data[0].temperatureHigh,
+                tempLow: body.daily.data[0].temperatureLow,
                 weather: body.currently.summary ,
                 temperature: body.currently.temperature,
                 rainchance: body.currently.precipProbability *100
             }
+            const {weather, rainchance: rainPercent , temperature, tempHigh, tempLow} = data
 
-            const {weather, rainchance: rainPercent , temperature} = data
-            callback(undefined, weather+ ' it is currently '+ temperature +' degrees out. there is a '+  rainPercent + '% chance of rain.')
+            callback(undefined, weather+ ' it is currently '+ temperature +' degrees out.  Temperature is between '+ tempLow +' to '+ tempHigh + ' degrees. there is a '+  rainPercent + '% chance of rain.')
         }    
     })
 }
